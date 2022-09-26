@@ -18,7 +18,7 @@ int main(void) {
     int input;
     Weather wt;
 
-    cout << "¿À´ÃÀÇ ³¯¾¾¸¦ ÀÔ·ÂÇÛÁÖ¼¼¿ä : " << endl;
+    cout << "¿À´ÃÀÇ ³¯¾¾¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : " << endl;
     cout << "(SUNNY=0, CLOUD=10, RAIN=20, SNOW=30)" << endl;
     cin >> input;
     wt = (Weather)input;
