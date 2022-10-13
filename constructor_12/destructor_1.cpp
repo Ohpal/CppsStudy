@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 class Book
@@ -10,6 +9,7 @@ private:
 
 public:
     Book(const string &title, int total_page);
+    ~Book(); // 소멸자의 원형 정의
     string title_;
     int total_page_;
     double percent_;
@@ -20,10 +20,8 @@ public:
 
 int main(void)
 {
-    Book web_book("HTML And CSS", 400);         //생성자 암시적 호출
-    Book web_book2 = Book("HTML And CSS", 350); //생성자 명시적 호출
-
-    // 생성자가 호출되어 멤버 변수인 percent_가 초기화되었는지 확인
+    Book web_book("HTML과 CSS", 350); // 생성자의 암시적 호출
+    // 생성자가 호출되어 멤버 변수인 percent_가 초기화되었는지를 확인함.
     cout << web_book.percent_ << endl;
     return 0;
 }
@@ -34,6 +32,14 @@ Book::Book(const string &title, int total_page)
     total_page_ = total_page;
     current_page_ = 0;
     set_percent();
+}
+
+Book::~Book() // 소멸자의 선언
+{
+    // 프로그램이 종료될 때 컴파일러에 의해 자동으로 호출됨.
+    cout << "Book 객체의 소멸자가 호출되었습니다." << endl;
+
+    // new 키워드로 메모리 할당 시 delete로 메모리 반환해야함
 }
 
 void Book::set_percent()
